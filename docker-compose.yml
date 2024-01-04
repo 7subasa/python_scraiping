@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  py3:
+    container_name: python3_container  # コンテナ名
+    tty: true
+    stdin_open: true
+    build:
+      context: ./py3  # コンテナ起動に必要なファイルを指定
+      dockerfile: Dockerfile
+    command: /bin/bash  # 対話シェルを起動
+    volumes:
+      - ./workspace:/workspace  # 作業ディレクトリを指定 ここに配置したものはコンテナとローカルで共有される
+
+
